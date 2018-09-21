@@ -23,7 +23,7 @@ public class PensionController {
     }
 
     @RequestMapping(value = "/getdata", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
-    public ResponseEntity<?> getGeoCoordinates() {
+    public ResponseEntity<?> getPension() {
         return new ResponseEntity<Pension>(pension, HttpStatus.OK);
     }
 }
