@@ -17,14 +17,20 @@ public class Pension {
     private List<Double> depositsList;
     private double totalInterests;
     private List<Double> accumulatedCapitalsList;
+    private boolean belkaTax;
+    private double inflationRate;
 
     private Pension(final PensionBuilder pensionBuilder) {
-        //nie ma znaczenia kolejność operacji w konstruktorze - sprawdzić !!!
-        //input data
-        this.futureValue = pensionBuilder.futureValue;
+        //ma znaczenie kolejność operacji w konstruktorze - przykład inflationRate !!!
+        //optional data
+        this.inflationRate = pensionBuilder.inflationRate;
+        //input data required
         this.yearsOfSavings = pensionBuilder.yearsOfSavings;
+        this.futureValue = pensionBuilder.futureValue * Math.pow(1 + inflationRate, yearsOfSavings);
         this.returnOnCapital = pensionBuilder.returnOnCapital;
+        //optional data
         this.capitalization = pensionBuilder.capitalization;
+        this.belkaTax = pensionBuilder.belkaTax;
         //calculated data
         this.nominalInterestRate = calculateNominalInterestRate();
         this.payment = calculatePayment();
@@ -35,37 +41,42 @@ public class Pension {
     //sprawdzić czy trzeba wszędzie dodawać this w metodach
 
     public double calculateNominalInterestRate() {
-        this.nominalInterestRate = Math.pow(1 + returnOnCapital, (double) 1 / capitalization) - 1;
-        return nominalInterestRate;
+        nominalInterestRate = Math.pow(1 + returnOnCapital, (double) 1 / capitalization) - 1;
+        if (belkaTax) {
+            return nominalInterestRate * 0.81;
+        } else {
+            return nominalInterestRate;
+        }
         /*return capitalization * (Math.pow(1 + returnOnCapital, (double) 1 / capitalization) - 1);
         Dopisać komentarz
          */
     }
 
     public double calculatePayment() {
-        this.payment = futureValue / (((Math.pow(nominalInterestRate + 1, capitalization * yearsOfSavings) - 1) / nominalInterestRate) * (1 + nominalInterestRate));
+        payment = futureValue / (((Math.pow(nominalInterestRate + 1, capitalization * yearsOfSavings) - 1) / nominalInterestRate) * (1 + nominalInterestRate));
         return payment;
     }
 
     public List<Double> calculateDepositsList() {
-        this.depositsList = new ArrayList<Double>(yearsOfSavings);
+        depositsList = new ArrayList<Double>(yearsOfSavings);
         for (int year = 1; year <= yearsOfSavings; year++) {
-            double sumOfFunds = 12 * year * calculatePayment();
+            double sumOfFunds = 12 * year * payment;
             depositsList.add(sumOfFunds);
-            this.totalAmountOfDeposits = +sumOfFunds;
+            totalAmountOfDeposits = +sumOfFunds;
         }
         return depositsList;
     }
 
     public List<Double> calculateAccumulatedCapitalsList() {
-        this.accumulatedCapitalsList = new ArrayList<Double>(yearsOfSavings);
+        accumulatedCapitalsList = new ArrayList<Double>(yearsOfSavings);
         for (int year = 1; year <= yearsOfSavings; year++) {
-            double sumOfFunds = calculatePayment() * (((Math.pow(nominalInterestRate + 1, capitalization * year) - 1) / nominalInterestRate) * (1 + nominalInterestRate));
+            double sumOfFunds = payment * (((Math.pow(nominalInterestRate + 1, capitalization * year) - 1) / nominalInterestRate) * (1 + nominalInterestRate));
             accumulatedCapitalsList.add(sumOfFunds);
         }
-        this.totalInterests = +futureValue - totalAmountOfDeposits;
+        totalInterests = +futureValue - totalAmountOfDeposits;
         return accumulatedCapitalsList;
     }
+
 
     public double getFutureValue() {
         return futureValue;
@@ -103,6 +114,14 @@ public class Pension {
         return totalInterests;
     }
 
+    public boolean isBelkaTax() {
+        return belkaTax;
+    }
+
+    public double getInflationRate() {
+        return inflationRate;
+    }
+
     public List<Double> getAccumulatedCapitalsList() {
         return accumulatedCapitalsList;
     }
@@ -128,6 +147,8 @@ public class Pension {
         private final int yearsOfSavings;
         private final double returnOnCapital;
         private int capitalization;
+        private boolean belkaTax;
+        private double inflationRate;
 
         public PensionBuilder(final double futureValue, final int yearsOfSavings, final double returnOnCapital) {
             this.futureValue = futureValue;
@@ -137,6 +158,16 @@ public class Pension {
 
         public PensionBuilder withCapitalization(final int capitalization) {
             this.capitalization = capitalization;
+            return this;
+        }
+
+        public PensionBuilder withBelkaTax(final boolean belkaTax) {
+            this.belkaTax = belkaTax;
+            return this;
+        }
+
+        public PensionBuilder withInflationRate(final double inflationRate) {
+            this.inflationRate = inflationRate;
             return this;
         }
 

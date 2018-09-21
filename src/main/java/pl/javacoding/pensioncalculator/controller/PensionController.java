@@ -19,6 +19,8 @@ public class PensionController {
     public void initialize() {
         this.pension = new Pension.PensionBuilder(100000, 10, 0.05)
                 .withCapitalization(12)
+                .withBelkaTax(true)
+                .withInflationRate(0.02)
                 .build();
     }
 
