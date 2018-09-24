@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
+  <title>Styleguide</title>
+  <meta name="author" content="Pingendo">
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="theme.css" type="text/css"> 
+  <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body ng-app="myApp">
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 p-3">
+          <h2 class="text-center">Kalkulator emerytalny</h2>
+          <hr> </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 p-3 text-center w-75 mx-auto">
+          <form class="">
+            <div class="form-group text-center">
+              <label>Jaką kwotę chcesz uzyskać w przyszłości?</label>
+              <input type="text" class="form-control text-center" value="100000"> </div>
+            <div class="form-group">
+              <label>Za ile lat chcesz wypłacić oszczędności?</label>
+              <input type="text" class="form-control text-center" value="za 10 lat"> </div>
+          </form>
+        </div>
+        <div class="col-md-6 p-3 text-center mx-auto w-50">
+          <form class="">
+            <div class="form-group text-center">
+              <label>Zakładana stopa zwrotu budowania kapitału</label>
+              <input type="text" class="form-control text-center" value="5%"> </div>
+            <div class="form-group">
+              <label>Średnia stopa inflacji</label>
+              <input type="text" class="form-control text-center" value="2%"> </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <a class="btn btn-primary" href="#">Wykonaj kalkulację </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table text-center">
+            <tbody>
+              <tr>
+                <td class="text-left">Kwota jaką należy zgromadzić: </td>
+                <td>148 594,74 zł</td>
+              </tr>
+              <tr>
+                <td class="text-left">Suma wpłat</td>
+                <td>87 524,99 zł</td>
+              </tr>
+              <tr>
+                <td class="text-left">Odsetki</td>
+                <td>61 069,75 zł</td>
+              </tr>
+              <tr>
+                <td class="text-left">Składka do uzyskania oszczędności</td>
+                <td>364,69 zł</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

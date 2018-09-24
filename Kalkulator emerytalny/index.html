@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Spring Examples</title>
+  <!-- Bootstrap core CSS -->
+  <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="scripts/jquery/jquery.min.js"></script>
+  <script src="scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="scripts/angular/functions.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="http://cdn.zingchart.com/zingchart.min.js"></script>
+  <script src="http://cdn.zingchart.com/angular/zingchart-angularjs.js"></script>
+  <script type="text/javascript">
+    var app = angular.module('myApp', ['zingchart-angularjs']);
+    app.controller('MainController', function($scope) {
+      $scope.myJson = {
+        gui: {
+          contextMenu: {
+            button: {
+              visible: 0
+            }
+          }
+        },
+        backgroundColor: "#434343",
+        globals: {
+          shadow: false,
+          fontFamily: "Helvetica"
+        },
+        type: "area",
+        legend: {
+          layout: "x4",
+          backgroundColor: "transparent",
+          borderColor: "transparent",
+          marker: {
+            borderRadius: "50px",
+            borderColor: "transparent"
+          },
+          item: {
+            fontColor: "white"
+          }
+        },
+        scaleX: {
+          maxItems: 8,
+          transform: {
+            type: 'date'
+          },
+          zooming: true,
+          values: [
+            1442905200000, 1442908800000,
+            1442912400000, 1442916000000,
+            1442919600000, 1442923200000,
+            1442926800000, 1442930400000,
+            1442934000000, 1442937600000,
+            1442941200000, 1442944800000,
+            1442948400000
+          ],
+          lineColor: "white",
+          lineWidth: "1px",
+          tick: {
+            lineColor: "white",
+            lineWidth: "1px"
+          },
+          item: {
+            fontColor: "white"
+          },
+          guide: {
+            visible: false
+          }
+        },
+        scaleY: {
+          lineColor: "white",
+          lineWidth: "1px",
+          tick: {
+            lineColor: "white",
+            lineWidth: "1px"
+          },
+          guide: {
+            lineStyle: "solid",
+            lineColor: "#626262"
+          },
+          item: {
+            fontColor: "white"
+          },
+        },
+        tooltip: {
+          visible: false
+        },
+        crosshairX: {
+          scaleLabel: {
+            backgroundColor: "#fff",
+            fontColor: "black"
+          },
+          plotLabel: {
+            backgroundColor: "#434343",
+            fontColor: "#FFF",
+            _text: "Number of hits : %v"
+          }
+        },
+        plot: {
+          lineWidth: "2px",
+          aspect: "spline",
+          marker: {
+            visible: false
+          }
+        },
+        series: [{
+          text: "All Sites",
+          values: [2596, 2626, 4480,
+            6394, 7488, 14510,
+            7012, 10389, 20281,
+            25597, 23309, 22385,
+            25097, 20813, 20510
+          ],
+          backgroundColor1: "#77d9f8",
+          backgroundColor2: "#272822",
+          lineColor: "#40beeb"
+        }, {
+          text: "Site 1",
+          values: [479, 199, 583,
+            1624, 2772, 7899,
+            3467, 3227, 12885,
+            17873, 14420, 12569,
+            17721, 11569, 7362
+          ],
+          backgroundColor1: "#4AD8CC",
+          backgroundColor2: "#272822",
+          lineColor: "#4AD8CC"
+        }, {
+          text: "Site 2",
+          values: [989, 1364, 2161,
+            2644, 1754, 2015,
+            818, 77, 1260,
+            3912, 1671, 1836,
+            2589, 1706, 1161
+          ],
+          backgroundColor1: "#1D8CD9",
+          backgroundColor2: "#1D8CD9",
+          lineColor: "#1D8CD9"
+        }, {
+          text: "Site 3",
+          values: [408, 343, 410,
+            840, 1614, 3274,
+            2092, 914, 5709,
+            6317, 6633, 6720,
+            6504, 6821, 4565
+          ],
+          backgroundColor1: "#D8CD98",
+          backgroundColor2: "#272822",
+          lineColor: "#D8CD98"
+        }]
+      };
+    });
+  </script>
+</head>
+
+<body ng-app="myApp">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Start Spring Examples</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Page Content -->
+  <div class="p-0 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 p-3">
+          <h2 class="text-center p-5">Kalkulator emerytalny</h2>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 p-3 text-center w-75 mx-auto">
+          <form class="">
+            <div class="form-group text-center">
+              <label>Jaką kwotę chcesz uzyskać w przyszłości?</label>
+              <input type="text" class="form-control text-center" value="100000"> </div>
+            <div class="form-group">
+              <label>Za ile lat chcesz wypłacić oszczędności?</label>
+              <input type="text" class="form-control text-center" value="za 10 lat"> </div>
+          </form>
+        </div>
+        <div class="col-md-6 p-3 text-center mx-auto w-50">
+          <form class="">
+            <div class="form-group text-center">
+              <label>Zakładana stopa zwrotu budowania kapitału</label>
+              <input type="text" class="form-control text-center" value="5%"> </div>
+            <div class="form-group">
+              <label>Średnia stopa inflacji</label>
+              <input type="text" class="form-control text-center" value="2%"> </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-left">
+          <a class="btn btn-primary" href="#">Wykonaj kalkulację </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-4 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table text-center">
+            <tbody class="border-dark">
+              <tr>
+                <td class="text-left border-primary">Kwota jaką należy zgromadzić: </td>
+                <td>148 594,74 zł</td>
+              </tr>
+              <tr>
+                <td class="text-left">Suma wpłat</td>
+                <td>87 524,99 zł</td>
+              </tr>
+              <tr>
+                <td class="text-left">Odsetki</td>
+                <td>61 069,75 zł</td>
+              </tr>
+              <tr>
+                <td class="text-left">Składka do uzyskania oszczędności</td>
+                <td class="text-success">364,69 zł</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-controller="MainController" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="chart-1" zc-height="568px" zc-json="myJson" zc-width="100%" zingchart="" class="p-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-dark text-white p-4">
+    <div class="container">
+      <div class="row">
+        <div class="p-4 col-md-4">
+          <h2 class="mb-4 text-secondary">Pingendo</h2>
+          <p class="text-white">A company for whatever you may need, from website prototyping to publishing</p>
+        </div>
+        <div class="p-4 col-md-4">
+          <h2 class="mb-4 text-secondary">Mapsite</h2>
+          <ul class="list-unstyled">
+            <a href="#" class="text-white">Home</a>
+            <br>
+            <a href="#" class="text-white">About us</a>
+            <br>
+            <a href="#" class="text-white">Our services</a>
+            <br>
+            <a href="#" class="text-white">Stories</a>
+          </ul>
+        </div>
+        <div class="p-4 col-md-4">
+          <h2 class="mb-4">Contact</h2>
+          <p>
+            <a href="tel:+246 - 542 550 5462" class="text-white">
+              <i class="fa d-inline mr-3 text-secondary fa-phone"></i>+246 - 542 550 5462</a>
+          </p>
+          <p>
+            <a href="mailto:info@pingendo.com" class="text-white">
+              <i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>info@pingendo.com</a>
+          </p>
+          <p>
+            <a href="https://goo.gl/maps/AUq7b9W7yYJ2" class="text-white" target="_blank">
+              <i class="fa d-inline mr-3 fa-map-marker text-secondary"></i>365 Park Street, NY</a>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-3">
+          <p class="text-center text-white">© Copyright 2017 Pingendo - All rights reserved. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+</body>
+
+</html>
