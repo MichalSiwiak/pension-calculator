@@ -20,10 +20,10 @@ public class PensionController {
 
     @PostConstruct
     public void initialize() {
-        this.pension = new Pension.PensionBuilder(100000, 10, 0.05)
+        this.pension = new Pension.PensionBuilder(100000, 10, 0.0445)
                 .withCapitalization(12)
                 .withBelkaTax(false)
-                .withInflationRate(0.02)
+                .withInflationRate(0.0051)
                 .build();
     }
 
@@ -44,8 +44,8 @@ public class PensionController {
         this.inputData = new InputData();
         this.inputData.setFutureValue(inputData.getFutureValue());
         this.inputData.setYearsOfSavings(inputData.getYearsOfSavings());
-        this.inputData.setReturnOnCapital(inputData.getReturnOnCapital());
-        this.inputData.setInflationRate(inputData.getInflationRate());
+        this.inputData.setReturnOnCapital(inputData.getReturnOnCapital()/100);
+        this.inputData.setInflationRate(inputData.getInflationRate()/100);
         return new ResponseEntity<String>(HttpStatus.CREATED);
     }
 }

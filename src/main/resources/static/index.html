@@ -18,7 +18,7 @@
     <script src="http://cdn.zingchart.com/angular/zingchart-angularjs.js"></script>
 </head>
 
-<body ng-app="Chart" ng-controller="MainController">
+<body ng-app="Chart" ng-controller="MainController" class="bg-light">
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
@@ -61,26 +61,30 @@
                     <div class="col-md-6 p-3 text-center w-75 mx-auto">
                         <div class="form-group text-center">
                             <label>Jaką kwotę chcesz uzyskać w przyszłości?</label>
-                            <input type="text" ng-model="form.futureValue" class="form-control text-center">
+                            <input type="number" min="1" max="1000000000" step="1" ng-model="form.futureValue"
+                                   class="form-control text-center" required="required">
                         </div>
                         <div class="form-group">
                             <label>Za ile lat chcesz wypłacić oszczędności?</label>
-                            <input type="text" ng-model="form.yearsOfSavings" class="form-control text-center">
+                            <input type="number" min="1" max="65" step="1" ng-model="form.yearsOfSavings"
+                                   class="form-control text-center" required="required">
                         </div>
                     </div>
                     <div class="col-md-6 p-3 text-center mx-auto w-50">
                         <div class="form-group text-center">
                             <label>Zakładana stopa zwrotu budowania kapitału</label>
-                            <input type="text" ng-model="form.returnOnCapital" class="form-control text-center">
+                            <input type="number" min="0.01" max="20" step="0.01" ng-model="form.returnOnCapital"
+                                   class="form-control text-center" required="required">
                         </div>
                         <div class="form-group">
                             <label>Średnia stopa inflacji</label>
-                            <input type="text" ng-model="form.inflationRate" class="form-control text-center">
+                            <input type="number" min="0.01" max="10" step="0.01" ng-model="form.inflationRate"
+                                   class="form-control text-center" required="required">
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 text-left">
+                    <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-primary">Wykonaj kalkulację</button>
                     </div>
                 </div>
@@ -90,24 +94,24 @@
     <div class="p-4 bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12" style="">
                     <table class="table text-center">
-                        <tbody class="border-dark">
+                        <tbody class="">
                         <tr>
-                            <td class="text-left border-primary">Kwota jaką należy zgromadzić:</td>
-                            <td>{{jsondata.futureValue}}</td>
+                            <td class="text-left">Kwota jaką należy zgromadzić:</td>
+                            <td>{{ (jsondata.futureValue | number:2) + " zł"}}</td>
                         </tr>
                         <tr>
-                            <td class="text-left">Suma wpłat</td>
-                            <td>{{jsondata.totalAmountOfDeposits}}</td>
+                            <td class="text-left">Suma wpłat:</td>
+                            <td>{{(jsondata.totalAmountOfDeposits | number:2) + " zł"}}</td>
                         </tr>
                         <tr>
-                            <td class="text-left">Odsetki</td>
-                            <td>{{jsondata.totalInterests}}</td>
+                            <td class="text-left">Odsetki:</td>
+                            <td>{{(jsondata.totalInterests | number:2) + " zł"}}</td>
                         </tr>
                         <tr>
-                            <td class="text-left">Składka do uzyskania oszczędności</td>
-                            <td class="text-success">{{jsondata.payment}}</td>
+                            <td class="text-left">Składka do uzyskania oszczędności:</td>
+                            <td class="text-success">{{(jsondata.payment | number:2) + " zł"}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -120,8 +124,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div zingchart id="chart-1" zc-json="myJson" zc-width="100%" zc-height="520px"></div>
+                <p class="lead text-center">Wykres gromadzonego kapitału</p>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div zingchart="" id="chart-1" zc-json="myJson" zc-width="100%" zc-height="520px"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"></div>
         </div>
     </div>
 </div>
@@ -167,5 +183,10 @@
         </div>
     </div>
 </div>
+<pingendo onclick="window.open('https://pingendo.com/', '_blank')"
+          style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">
+    Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block"
+                                            alt="Pingendo logo" height="16"></pingendo>
 </body>
+
 </html>

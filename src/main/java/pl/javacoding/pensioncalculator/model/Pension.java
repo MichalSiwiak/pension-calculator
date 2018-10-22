@@ -17,6 +17,7 @@ public class Pension {
     private List<Double> depositsList;
     private double totalInterests;
     private List<Double> accumulatedCapitalsList;
+    private List<Integer> yearList;
     private boolean belkaTax;
     private double inflationRate;
 
@@ -58,20 +59,22 @@ public class Pension {
     }
 
     public List<Double> calculateDepositsList() {
-        depositsList = new ArrayList<Double>(yearsOfSavings);
+        depositsList = new ArrayList<>(yearsOfSavings);
+        yearList = new ArrayList<>();
         for (int year = 1; year <= yearsOfSavings; year++) {
             double sumOfFunds = 12 * year * payment;
-            depositsList.add(sumOfFunds);
+            depositsList.add((double) Math.round(sumOfFunds));
+            yearList.add(year);
             totalAmountOfDeposits = +sumOfFunds;
         }
         return depositsList;
     }
 
     public List<Double> calculateAccumulatedCapitalsList() {
-        accumulatedCapitalsList = new ArrayList<Double>(yearsOfSavings);
+        accumulatedCapitalsList = new ArrayList<>(yearsOfSavings);
         for (int year = 1; year <= yearsOfSavings; year++) {
             double sumOfFunds = payment * (((Math.pow(nominalInterestRate + 1, capitalization * year) - 1) / nominalInterestRate) * (1 + nominalInterestRate));
-            accumulatedCapitalsList.add(sumOfFunds);
+            accumulatedCapitalsList.add((double) Math.round(sumOfFunds));
         }
         totalInterests = +futureValue - totalAmountOfDeposits;
         return accumulatedCapitalsList;
@@ -126,6 +129,10 @@ public class Pension {
         return accumulatedCapitalsList;
     }
 
+    public List<Integer> getYearList() {
+        return yearList;
+    }
+
     @Override
     public String toString() {
         return "Pension{" +
@@ -139,6 +146,9 @@ public class Pension {
                 ", depositsList=" + depositsList +
                 ", totalInterests=" + totalInterests +
                 ", accumulatedCapitalsList=" + accumulatedCapitalsList +
+                ", yearList=" + yearList +
+                ", belkaTax=" + belkaTax +
+                ", inflationRate=" + inflationRate +
                 '}';
     }
 
