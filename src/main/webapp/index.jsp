@@ -19,7 +19,6 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.standalone.min.css">
     <link rel="stylesheet" href="resources/css/now-ui-kit.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/home.css" type="text/css">
     <link rel="icon" href="resources/img/favicon.png">
     <!-- PAGE scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -60,16 +59,28 @@
 <div class="navbar sticky-top navbar-dark bg-info">
     <div class="container d-flex justify-content-between">
         <a href="https://www.coffecode.org/" class="navbar-brand d-flex align-items-center"><i
-                class="icon-home"></i><strong>Home</strong> </a>
-        <a href="#" class="navbar-brand d-flex align-items-center"><i class="icon-github-circled"></i><strong>Source
-            Code</strong> </a>
+                class="fa fa-home fa-2x lead fa-fw d-inline-block" aria-hidden="true"></i>&nbsp;&nbsp;<text class="">
+            HOME
+        </text>
+        </a>
+        <a href="#" class="navbar-brand d-flex align-items-center"><i
+                class="fa fa-git-square fa-fw d-inline-block lead fa-2x"></i>&nbsp;&nbsp;<text class="">SOURCE CODE
+        </text>
+        </a>
         <a href="${pageContext.request.contextPath}" class="navbar-brand d-flex align-items-center"><i
-                class="icon-doc-text"></i><strong>Description</strong> </a>
+                class="fa fa-file-text fa-2x fa-fw lead d-inline-block" aria-hidden="true"></i>&nbsp;&nbsp;<text
+                class="">DESCRIPTION
+        </text>
+        </a>
         <a href="/resume" class="navbar-brand d-flex align-items-center"><i
-                class="icon-vcard"></i><strong>Resume</strong>
+                class="fa fa-address-card fa-2x lead fa-fw d-inline-block" aria-hidden="true"></i>&nbsp;&nbsp;<text
+                class="">RESUME
+        </text>
         </a>
         <a href="/contact" class="navbar-brand d-flex align-items-center"><i
-                class="icon-mail-alt"></i><strong>Contact</strong>
+                class="fa fa-envelope fa-2x lead fa-fw d-inline-block" aria-hidden="true"></i>&nbsp;&nbsp;<text
+                class="">CONTACT
+        </text>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"><span
                 class="navbar-toggler-icon"></span></button>

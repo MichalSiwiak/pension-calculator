@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 
 <head>
@@ -16,14 +19,12 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.standalone.min.css">
     <link rel="stylesheet" href="resources/css/now-ui-kit.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/home.css" type="text/css">
     <link rel="icon" href="resources/img/favicon.png">
     <!-- PAGE scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="resources/js/functions.js"></script>
     <script src="http://cdn.zingchart.com/zingchart.min.js"></script>
     <script src="http://cdn.zingchart.com/angular/zingchart-angularjs.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
@@ -35,8 +36,7 @@
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
 </head>
-
-<body ng-app="Chart" ng-controller="MainController" class="bg-light">
+<body ng-app="Chart" ng-controller="MainController"  class="bg-light text-dark" style="">
 <div class="collapse" id="navbarHeader">
     <div class="container">
         <div class="row">
@@ -63,22 +63,33 @@
 <div class="navbar sticky-top navbar-dark bg-info">
     <div class="container d-flex justify-content-between">
         <a href="https://www.coffecode.org/" class="navbar-brand d-flex align-items-center"><i
-                class="icon-home"></i><strong>Home</strong> </a>
-        <a href="#" class="navbar-brand d-flex align-items-center"><i class="icon-github-circled"></i><strong>Source
-            Code</strong> </a>
+                class="fa fa-home fa-2x lead fa-fw d-inline-block" aria-hidden="true"></i>&nbsp;&nbsp;<text class="">
+            HOME
+        </text>
+        </a>
+        <a href="#" class="navbar-brand d-flex align-items-center"><i
+                class="fa fa-git-square fa-fw d-inline-block lead fa-2x"></i>&nbsp;&nbsp;<text class="">SOURCE CODE
+        </text>
+        </a>
         <a href="${pageContext.request.contextPath}" class="navbar-brand d-flex align-items-center"><i
-                class="icon-doc-text"></i><strong>Description</strong> </a>
+                class="fa fa-file-text fa-2x fa-fw lead d-inline-block" aria-hidden="true"></i>&nbsp;&nbsp;<text
+                class="">DESCRIPTION
+        </text>
+        </a>
         <a href="/resume" class="navbar-brand d-flex align-items-center"><i
-                class="icon-vcard"></i><strong>Resume</strong>
+                class="fa fa-address-card fa-2x lead fa-fw d-inline-block" aria-hidden="true"></i>&nbsp;&nbsp;<text
+                class="">RESUME
+        </text>
         </a>
         <a href="/contact" class="navbar-brand d-flex align-items-center"><i
-                class="icon-mail-alt"></i><strong>Contact</strong>
+                class="fa fa-envelope fa-2x lead fa-fw d-inline-block" aria-hidden="true"></i>&nbsp;&nbsp;<text
+                class="">CONTACT
+        </text>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"><span
                 class="navbar-toggler-icon"></span></button>
     </div>
 </div>
-
 <div class="text-center py-4 bg-secondary"
      style="	background-image: linear-gradient(to left, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
     <div class="container">
@@ -93,8 +104,7 @@
         </div>
     </div>
 </div>
-
-<div class="row my-3">
+<div class="row my-3 text-dark">
     <div class="container w-50">
         <form ng-submit="submitData()">
             <div class="row">
@@ -102,24 +112,24 @@
                     <div class="form-group text-center">
                         <label>Jaką kwotę chcesz uzyskać w przyszłości?</label>
                         <input type="number" min="1" max="1000000000" step="1" ng-model="form.futureValue"
-                               class="form-control text-center" required="required">
+                               class="form-control text-center text-dark" required="required">
                     </div>
                     <div class="form-group">
                         <label>Za ile lat chcesz wypłacić oszczędności?</label>
                         <input type="number" min="1" max="65" step="1" ng-model="form.yearsOfSavings"
-                               class="form-control text-center" required="required">
+                               class="form-control text-center text-dark" required="required">
                     </div>
                 </div>
                 <div class="col-md-6 p-3 text-center mx-auto w-50">
                     <div class="form-group text-center">
                         <label>Zakładana stopa zwrotu budowania kapitału</label>
                         <input type="number" min="0.01" max="20" step="0.01" ng-model="form.returnOnCapital"
-                               class="form-control text-center" required="required">
+                               class="form-control text-center text-dark" required="required">
                     </div>
                     <div class="form-group">
                         <label>Średnia stopa inflacji</label>
                         <input type="number" min="0.01" max="10" step="0.01" ng-model="form.inflationRate"
-                               class="form-control text-center" required="required">
+                               class="form-control text-center text-dark" required="required">
                     </div>
                 </div>
             </div>
@@ -131,12 +141,11 @@
         </form>
     </div>
 </div>
-
-<div class="row my-4">
+<div class="row my-4 text-dark">
     <div class="container p-0">
         <div class="row">
             <div class="col-md-12" style="">
-                <table class="table text-center">
+                <table class="table text-center text-dark">
                     <tbody class="">
                     <tr>
                         <td class="text-left">Kwota jaką należy zgromadzić:</td>
@@ -160,12 +169,11 @@
         </div>
     </div>
 </div>
-
 <div class="bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p class="lead text-center">Wykres gromadzonego kapitału</p>
+                <p class="lead text-center text-dark">Wykres gromadzonego kapitału</p>
             </div>
         </div>
         <div class="row">
@@ -185,7 +193,5 @@
         </p>
     </div>
 </footer>
-
 </body>
-
 </html>

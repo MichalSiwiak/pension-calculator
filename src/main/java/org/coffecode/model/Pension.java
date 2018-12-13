@@ -1,7 +1,11 @@
 package org.coffecode.model;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Pension {
 
@@ -79,7 +83,6 @@ public class Pension {
         totalInterests = +futureValue - totalAmountOfDeposits;
         return accumulatedCapitalsList;
     }
-
 
     public double getFutureValue() {
         return futureValue;
