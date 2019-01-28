@@ -10,7 +10,7 @@ var app = angular.module('Chart', ['zingchart-angularjs'])
 app.controller('MainController', function ($scope, $http) {
 
 
-    //Initialize page with default data which is blank in this example
+    //Initialize values
     $scope.form = {
         futureValue: 100000,
         yearsOfSavings: 10,
@@ -23,7 +23,7 @@ app.controller('MainController', function ($scope, $http) {
 
     //HTTP GET methods
     function _refreshPageData() {
-        $http.get('/pension/demo/getdata')
+        $http.get('/pension/getdata')
             .then(function (response) {
                 $scope.jsondata = response.data;
                 $scope.myJson.series[0].values = response.data.depositsList;
@@ -41,7 +41,7 @@ app.controller('MainController', function ($scope, $http) {
     $scope.submitData = function () {
         $http({
             method: "POST",
-            url: '/pension/demo/submit',
+            url: '/pension/submit',
             data: angular.toJson($scope.form),
             headers: {
                 'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ app.controller('MainController', function ($scope, $http) {
                     _text: "Number of hits : %v"
                 }
             },
-            scaleX: { values:  [] },
+            scaleX: {values: []},
             plot: {
                 lineWidth: "2px",
                 aspect: "line",

@@ -1,4 +1,4 @@
-package org.coffecode.model;
+package net.coffeecoding.model;
 
 public class InputData {
 

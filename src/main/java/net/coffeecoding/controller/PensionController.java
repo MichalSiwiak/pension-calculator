@@ -1,7 +1,7 @@
-package org.coffecode.controller;
+package net.coffeecoding.controller;
 
-import org.coffecode.model.InputData;
-import org.coffecode.model.Pension;
+import net.coffeecoding.model.InputData;
+import net.coffeecoding.model.Pension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +33,7 @@ public class PensionController {
                 .build();
     }
 
-    @RequestMapping(value = "demo/getdata", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+    @RequestMapping(value = "/getdata", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
     public ResponseEntity<?> getPension() {
         if (inputData != null) {
             pension = new Pension.PensionBuilder(inputData.getFutureValue(), inputData.getYearsOfSavings(), inputData.getReturnOnCapital())
@@ -45,13 +45,13 @@ public class PensionController {
         return new ResponseEntity<>(pension, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "demo/submit", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    @RequestMapping(value = "/submit", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public ResponseEntity<?> checkFlight(@RequestBody InputData inputData) {
         this.inputData = new InputData();
         this.inputData.setFutureValue(inputData.getFutureValue());
         this.inputData.setYearsOfSavings(inputData.getYearsOfSavings());
-        this.inputData.setReturnOnCapital(inputData.getReturnOnCapital()/100);
-        this.inputData.setInflationRate(inputData.getInflationRate()/100);
+        this.inputData.setReturnOnCapital(inputData.getReturnOnCapital() / 100);
+        this.inputData.setInflationRate(inputData.getInflationRate() / 100);
         return new ResponseEntity<String>(HttpStatus.CREATED);
     }
 }
