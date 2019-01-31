@@ -24,6 +24,11 @@ public class PensionController {
         return "pension-form";
     }
 
+    @GetMapping("/error")
+    public String showErrorPage() {
+        return "error-page";
+    }
+
     @PostConstruct
     public void initialize() {
         this.pension = new Pension.PensionBuilder(100000, 10, 0.0445)
