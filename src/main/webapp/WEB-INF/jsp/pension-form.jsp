@@ -19,10 +19,10 @@
     <link rel="stylesheet" href="https://www.coffeecoding.net/resources/css/style.css" type="text/css">
     <link rel="icon" href="resources/img/favicon.png">
     <!-- PAGE scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="resources/js/functions.js"></script>
-    <script src="http://cdn.zingchart.com/zingchart.min.js"></script>
-    <script src="http://cdn.zingchart.com/angular/zingchart-angularjs.js"></script>
+    <script src="//cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="//cdn.zingchart.com/angular/zingchart-angularjs.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
@@ -87,7 +87,7 @@
                         class="">DESCRIPTION
                 </text>
                 </a>
-                <a href="https://coffeecoding.net/resources/img/cv_msiwiak.pdf"
+                <a href="https://coffeecoding.net/resources/img/cv_msiwiak.pdf" target="_blank"
                    class="navbar-brand d-flex align-items-center"><i
                         class="fa fa-address-card fa-2x lead fa-fw d-inline-block" aria-hidden="true"></i>&nbsp;&nbsp;<text
                         class="">RESUME
