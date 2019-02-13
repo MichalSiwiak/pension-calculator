@@ -122,24 +122,24 @@
                     <div class="row">
                         <div class="col-md-6 p-3 text-center w-75 mx-auto">
                             <div class="form-group text-center">
-                                <label>Jaką kwotę chcesz uzyskać w przyszłości?</label>
+                                <label>What amount do you want to get in the future?</label>
                                 <input type="number" min="1" max="1000000000" step="1" ng-model="form.futureValue"
                                        class="form-control text-center text-dark" required="required">
                             </div>
                             <div class="form-group">
-                                <label>Za ile lat chcesz wypłacić oszczędności?</label>
+                                <label>For how many years do you want to withdraw your savings?</label>
                                 <input type="number" min="1" max="65" step="1" ng-model="form.yearsOfSavings"
                                        class="form-control text-center text-dark" required="required">
                             </div>
                         </div>
                         <div class="col-md-6 p-3 text-center mx-auto w-50">
                             <div class="form-group text-center">
-                                <label>Zakładana stopa zwrotu budowania kapitału</label>
+                                <label>Estimated rate of return on capital building</label>
                                 <input type="number" min="0.01" max="20" step="0.01" ng-model="form.returnOnCapital"
                                        class="form-control text-center text-dark" required="required">
                             </div>
                             <div class="form-group">
-                                <label>Średnia stopa inflacji</label>
+                                <label>Average inflation rate</label>
                                 <input type="number" min="0.01" max="10" step="0.01" ng-model="form.inflationRate"
                                        class="form-control text-center text-dark" required="required">
                             </div>
@@ -147,7 +147,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">Wykonaj kalkulację</button>
+                            <button type="submit" class="btn btn-primary">Execute calculation</button>
                         </div>
                     </div>
                 </form>
@@ -161,19 +161,19 @@
                         <table class="table text-center text-dark">
                             <tbody class="">
                             <tr>
-                                <td class="text-left">Kwota jaką należy zgromadzić:</td>
+                                <td class="text-left">Amount to be collected:</td>
                                 <td>{{ (jsondata.futureValue | number:2) + " zł"}}</td>
                             </tr>
                             <tr>
-                                <td class="text-left">Suma wpłat:</td>
+                                <td class="text-left">Total payments:</td>
                                 <td>{{(jsondata.totalAmountOfDeposits | number:2) + " zł"}}</td>
                             </tr>
                             <tr>
-                                <td class="text-left">Odsetki:</td>
+                                <td class="text-left">Interest:</td>
                                 <td>{{(jsondata.totalInterests | number:2) + " zł"}}</td>
                             </tr>
                             <tr>
-                                <td class="text-left">Składka do uzyskania oszczędności:</td>
+                                <td class="text-left">Monthly contribution for reach expected savings:</td>
                                 <td class="text-success">{{(jsondata.payment | number:2) + " zł"}}</td>
                             </tr>
                             </tbody>
@@ -187,7 +187,7 @@
             <div class="container mb-5">
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="lead text-center text-dark">Wykres gromadzonego kapitału</p>
+                        <p class="lead text-center text-dark">Graph of accumulated capital</p>
                     </div>
                 </div>
                 <div class="row">

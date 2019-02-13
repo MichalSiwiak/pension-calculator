@@ -154,13 +154,13 @@ app.controller('MainController', function ($scope, $http) {
                 }
             },
             series: [{
-                text: "Suma wpłat",
+                text: "Interest",
                 values: [],
                 backgroundColor1: "#4AD8CC",
                 backgroundColor2: "#272822",
                 lineColor: "#4AD8CC"
             }, {
-                text: "Zgromadzony kapitał",
+                text: "Accumulated capital",
                 values: [],
                 backgroundColor1: "#D8CD98",
                 backgroundColor2: "#272822",
