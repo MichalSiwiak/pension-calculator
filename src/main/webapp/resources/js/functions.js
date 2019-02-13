@@ -68,11 +68,25 @@ app.controller('MainController', function ($scope, $http) {
 
     //Drawing chart
     function _draw_chart() {
+
+
         $scope.myJson = {
-            backgroundColor: "",
+            gui: {
+                contextMenu: {
+                    button: {
+                        visible: 0
+                    }
+                }
+            },
+            backgroundColor: "#434343",
+            globals: {
+                shadow: false,
+                fontFamily: "Helvetica"
+            },
+            type: "area",
+
             legend: {
-                align: "right",
-                layout: "x2",
+                layout: "x4",
                 backgroundColor: "transparent",
                 borderColor: "transparent",
                 marker: {
@@ -80,9 +94,46 @@ app.controller('MainController', function ($scope, $http) {
                     borderColor: "transparent"
                 },
                 item: {
-                    fontColor: "grey"
+                    fontColor: "white"
                 }
 
+            },
+            scaleX: {
+                transform: {
+                    type: 'number'
+                },
+                zooming: true,
+                values: [],
+                lineColor: "white",
+                lineWidth: "1px",
+                tick: {
+                    lineColor: "white",
+                    lineWidth: "1px"
+                },
+                item: {
+                    fontColor: "white"
+                },
+                guide: {
+                    visible: false
+                }
+            },
+            scaleY: {
+                lineColor: "white",
+                lineWidth: "1px",
+                tick: {
+                    lineColor: "white",
+                    lineWidth: "1px"
+                },
+                guide: {
+                    lineStyle: "solid",
+                    lineColor: "#626262"
+                },
+                item: {
+                    fontColor: "white"
+                },
+            },
+            tooltip: {
+                visible: false
             },
             crosshairX: {
                 scaleLabel: {
@@ -92,24 +143,31 @@ app.controller('MainController', function ($scope, $http) {
                 plotLabel: {
                     backgroundColor: "#434343",
                     fontColor: "#FFF",
+                    "thousands-separator": ",",
                     _text: "Number of hits : %v"
                 }
             },
-            scaleX: {values: []},
             plot: {
                 lineWidth: "2px",
-                aspect: "line",
                 marker: {
                     visible: false
                 }
             },
-            type: 'line',
-            series: [{text: "Suma wpłat", values: [], lineColor: "#4AD8CC"}, {
+            series: [{
+                text: "Suma wpłat",
+                values: [],
+                backgroundColor1: "#4AD8CC",
+                backgroundColor2: "#272822",
+                lineColor: "#4AD8CC"
+            }, {
                 text: "Zgromadzony kapitał",
-                lineColor: "#D8CD98",
-                values: []
+                values: [],
+                backgroundColor1: "#D8CD98",
+                backgroundColor2: "#272822",
+                lineColor: "#D8CD98"
             }]
-        }
+        };
+
     }
 
 });

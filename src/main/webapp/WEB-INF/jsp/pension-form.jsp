@@ -183,8 +183,8 @@
             </div>
         </div>
 
-        <div class="bg-light">
-            <div class="container">
+        <div class="bg-light ">
+            <div class="container mb-5">
                 <div class="row">
                     <div class="col-md-12">
                         <p class="lead text-center text-dark">Wykres gromadzonego kapitału</p>
@@ -192,7 +192,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div zingchart="" id="chart-1" zc-json="myJson" zc-width="100%" zc-height="520px"></div>
+                        <div zingchart id="chart-1" zc-json="myJson" zc-width="100%" zc-height="568px"></div>
                     </div>
                 </div>
             </div>
