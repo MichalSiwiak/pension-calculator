@@ -23,7 +23,7 @@ app.controller('MainController', function ($scope, $http) {
 
     //HTTP GET methods
     function _refreshPageData() {
-        $http.get('/pension/getdata')
+        $http.get('getdata')
             .then(function (response) {
                 $scope.jsondata = response.data;
                 $scope.myJson.series[0].values = response.data.depositsList;
@@ -41,7 +41,7 @@ app.controller('MainController', function ($scope, $http) {
     $scope.submitData = function () {
         $http({
             method: "POST",
-            url: '/pension/submit',
+            url: 'submit',
             data: angular.toJson($scope.form),
             headers: {
                 'Content-Type': 'application/json'
