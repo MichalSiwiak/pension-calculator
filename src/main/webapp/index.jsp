@@ -114,9 +114,9 @@
                         <h5>The application supports operations:</h5>
                         <h5>
                             <ul>
-                                <li>calculation of the pension</li>
-                                <li>sharing API</li>
-                                <li>presenting data on the chart using AngularJS Charts</li>
+                                <li>calculation of the pension,</li>
+                                <li>sharing API,</li>
+                                <li>presenting data on the chart using AngularJS Charts.</li>
                             </ul>
                         </h5>
                         <h5><b>Back End: </b>Java, Spring MVC, Spring Web Services.</h5>
