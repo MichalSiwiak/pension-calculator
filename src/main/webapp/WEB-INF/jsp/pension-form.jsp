@@ -110,7 +110,7 @@
                 <div class="row">
                     <div class="col-md-0 text-left">
                         <h1 class="text-left text-primary">Pension Calculator</h1>
-                        <p class="lead text-left"></p>
+                        <p class="lead text-left">Calculation of annuity based on future value and interest rate.</p>
                     </div>
                 </div>
             </div>
